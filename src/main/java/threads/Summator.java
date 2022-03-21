@@ -27,10 +27,8 @@ public class Summator {
      * Добавление новых элементов в общий массив
      */
     public void add() {
-        ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         IntStream.range(0, arr.length)
-                .forEach(i -> executorService.submit(() -> adder.add(arr[i])));
-        executorService.shutdown();
+                .forEach(i -> adder.add(arr[i]));
     }
 
     /**
